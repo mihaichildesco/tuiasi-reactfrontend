@@ -1,0 +1,1061 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Mock API",
+    "version": "1.0.0",
+    "contact": {
+      "url": "http://google.com/",
+      "name": "tuiasi"
+    },
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api"
+    }
+  ],
+  "paths": {
+    "/auth/user/update": {
+      "parameters": [],
+      "post": {
+        "summary": "Update User",
+        "operationId": "auth_updateUser",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Update user data.",
+        "tags": [
+          "auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/auth_user"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "uuid": "string",
+                    "from": "string",
+                    "password": "string",
+                    "role": "string",
+                    "data": {
+                      "displayName": "string",
+                      "photoURL": "string",
+                      "email": "string",
+                      "settings": {
+                        "layout": {},
+                        "theme": {}
+                      },
+                      "shortcuts": [
+                        "string"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/sign-in": {
+      "get": {
+        "summary": "Sign In",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/auth_user"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "uuid": "string",
+                      "from": "string",
+                      "password": "string",
+                      "role": "string",
+                      "data": {
+                        "displayName": "string",
+                        "photoURL": "string",
+                        "email": "string",
+                        "settings": {
+                          "layout": {},
+                          "theme": {}
+                        },
+                        "shortcuts": [
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "auth_signIn",
+        "description": "Retrieve user.",
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/sign-up": {
+      "get": {
+        "summary": "Sign Up",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/auth_user"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "uuid": "string",
+                      "from": "string",
+                      "password": "string",
+                      "role": "string",
+                      "data": {
+                        "displayName": "string",
+                        "photoURL": "string",
+                        "email": "string",
+                        "settings": {
+                          "layout": {},
+                          "theme": {}
+                        },
+                        "shortcuts": [
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "auth_signUp",
+        "description": "Retrieve user.",
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/access-token": {
+      "get": {
+        "summary": "Sign in with access token",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/auth_user"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "uuid": "string",
+                      "from": "string",
+                      "password": "string",
+                      "role": "string",
+                      "data": {
+                        "displayName": "string",
+                        "photoURL": "string",
+                        "email": "string",
+                        "settings": {
+                          "layout": {},
+                          "theme": {}
+                        },
+                        "shortcuts": [
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "auth_signInWithAccessToken",
+        "description": "Retrieve user with access token.",
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/profile/about": {
+      "get": {
+        "summary": "Get Profile About",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/profile_about"
+                },
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/profile_about"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "profile_getAbout",
+        "description": "Retrieve about.",
+        "tags": [
+          "profile"
+        ]
+      },
+      "parameters": []
+    },
+    "/dashboards/statistics": {
+      "get": {
+        "summary": "Get Project Dashboard Projects",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/dashboards"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "projectDashboard_getProjectsidgets",
+        "description": "Retrieve Project dashboard projects.",
+        "tags": [
+          "project-dashboard"
+        ]
+      },
+      "parameters": []
+    },
+    "/file-manager/{folderId}": {
+      "get": {
+        "summary": "Get Folder",
+        "tags": [
+          "file-manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/file_manager_item"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "folderId": null,
+                      "name": "string",
+                      "createdBy": "string",
+                      "createdAt": "string",
+                      "modifiedAt": "string",
+                      "size": "string",
+                      "type": "string",
+                      "contents": "string",
+                      "description": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "fileManager_getFolder",
+        "description": "Retrieve File Manager folder by id."
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "folderId",
+          "in": "path",
+          "required": true,
+          "description": "folder id"
+        }
+      ],
+      "put": {
+        "summary": "Update Folder",
+        "tags": [
+          "file-manager"
+        ],
+        "operationId": "fileManager_updateFolder",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "description": "Update folder information.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/file_manager_item"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "delete": {
+        "summary": "Delete Folder",
+        "tags": [
+          "file-manager"
+        ],
+        "operationId": "fileManager_deleteFolder",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "description": "Delete folder."
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "file_manager_item": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "folderId": {},
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdBy": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "modifiedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "size": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contents": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "createdBy",
+          "createdAt",
+          "modifiedAt",
+          "size",
+          "type",
+          "contents",
+          "description"
+        ],
+        "x-examples": {
+          "example-1": {
+            "id": "cd6897cb-acfd-4016-8b53-3f66a5b5fc68",
+            "folderId": null,
+            "name": "Personal",
+            "createdBy": "Brian Hughes",
+            "createdAt": "April 24, 2018",
+            "modifiedAt": "April 24, 2018",
+            "size": "87 MB",
+            "type": "folder",
+            "contents": "57 files",
+            "description": "Personal documents such as insurance policies, tax papers and etc."
+          }
+        }
+      },
+      "auth_user": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string"
+              },
+              "photoURL": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "layout": {
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "theme": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              },
+              "shortcuts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "uuid": "XgbuVEXBU5gtSKdbQRP1Zbbby1i1",
+            "from": "custom-db",
+            "password": "admin",
+            "role": "admin",
+            "data": {
+              "displayName": "Robert Gealapu",
+              "photoURL": "assets/images/avatars/brian-hughes.jpg",
+              "email": "robert.gealapu@blacksquare.ro",
+              "settings": {
+                "layout": {},
+                "theme": {}
+              },
+              "shortcuts": [
+                "apps.calendar",
+                "apps.mailbox",
+                "apps.contacts"
+              ]
+            }
+          }
+        }
+      },
+      "profile_about": {
+        "type": "object",
+        "properties": {
+          "general": {
+            "type": "object",
+            "properties": {
+              "gender": {
+                "type": "string"
+              },
+              "birthday": {
+                "type": "string"
+              },
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "about": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "general": {
+              "gender": "Male",
+              "birthday": "February 30th, 1974",
+              "locations": [
+                "London, UK",
+                "New York, USA"
+              ],
+              "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget pharetra felis, sed ullamcorper dui. Sed et elementum neque. Vestibulum pellente viverra ultrices. Etiam justo augue, vehicula ac gravida a, interdum sit amet nisl. Integer vitae nisi id nibh dictum mollis in vitae tortor."
+            },
+            "work": {
+              "occupation": "Developer",
+              "skills": "C#, PHP, Javascript, Angular, JS, HTML, CSS",
+              "jobs": [
+                {
+                  "company": "Self-Employed",
+                  "date": "2010 - Now"
+                },
+                {
+                  "company": "Google",
+                  "date": "2008 - 2010"
+                }
+              ]
+            },
+            "contact": {
+              "address": "Ut pharetra luctus est quis sodales. Duis nisi tortor, bibendum eget tincidunt, aliquam ac elit. Mauris nec euismod odio.",
+              "tel": [
+                "+6 555 6600",
+                "+9 555 5255"
+              ],
+              "websites": [
+                "withinpixels.com"
+              ],
+              "emails": [
+                "mail@withinpixels.com",
+                "mail@creapond.com"
+              ]
+            },
+            "groups": [
+              {
+                "id": "1",
+                "name": "Android",
+                "category": "Technology",
+                "members": "1.856.546"
+              },
+              {
+                "id": "2",
+                "name": "Google",
+                "category": "Web",
+                "members": "1.226.121"
+              },
+              {
+                "id": "3",
+                "name": "Fallout",
+                "category": "Games",
+                "members": "526.142"
+              }
+            ],
+            "friends": [
+              {
+                "id": "1",
+                "name": "Garry Newman",
+                "avatar": "assets/images/avatars/male-11.jpg"
+              },
+              {
+                "id": "2",
+                "name": "Carl Henderson",
+                "avatar": "assets/images/avatars/male-12.jpg"
+              },
+              {
+                "id": "3",
+                "name": "Jane Dean",
+                "avatar": "assets/images/avatars/female-11.jpg"
+              },
+              {
+                "id": "4",
+                "name": "Garry Arnold",
+                "avatar": "assets/images/avatars/male-13.jpg"
+              },
+              {
+                "id": "5",
+                "name": "Vincent Munoz",
+                "avatar": "assets/images/avatars/male-14.jpg"
+              },
+              {
+                "id": "6",
+                "name": "Alice Freeman",
+                "avatar": "assets/images/avatars/female-12.jpg"
+              },
+              {
+                "id": "7",
+                "name": "Andrew Green",
+                "avatar": "assets/images/avatars/male-16.jpg"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "securitySchemes": {},
+    "examples": {
+      "file_manager_items": {
+        "value": [
+          {
+            "id": "cd6897cb-acfd-4016-8b53-3f66a5b5fc68",
+            "folderId": null,
+            "name": "Personal",
+            "createdBy": "Brian Hughes",
+            "createdAt": "April 24, 2018",
+            "modifiedAt": "April 24, 2018",
+            "size": "87 MB",
+            "type": "folder",
+            "contents": "57 files",
+            "description": "Personal documents such as insurance policies, tax papers and etc."
+          },
+          {
+            "id": "6da8747f-b474-4c9a-9eba-5ef212285500",
+            "folderId": null,
+            "name": "Photos",
+            "createdBy": "Brian Hughes",
+            "createdAt": "November 01, 2021",
+            "modifiedAt": "November 01, 2021",
+            "size": "3015 MB",
+            "type": "folder",
+            "contents": "907 files",
+            "description": "Personal photos; selfies, family, vacation and etc."
+          },
+          {
+            "id": "ed58add1-45a7-41db-887d-3ca7ee7f2719",
+            "folderId": null,
+            "name": "Work",
+            "createdBy": "Brian Hughes",
+            "createdAt": "May 8, 2020",
+            "modifiedAt": "May 8, 2020",
+            "size": "14 MB",
+            "type": "folder",
+            "contents": "24 files",
+            "description": "Work related files, mainly documents and paychecks."
+          },
+          {
+            "id": "5cb66e32-d1ac-4b9a-8c34-5991ce25add2",
+            "folderId": null,
+            "name": "Contract #123",
+            "createdBy": "Brian Hughes",
+            "createdAt": "January 14, 2021",
+            "modifiedAt": "January 14, 2021",
+            "size": "1.2 MB",
+            "type": "PDF",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "3ffc3d84-8f2d-4929-903a-ef6fc21657a7",
+            "folderId": null,
+            "name": "Estimated budget",
+            "createdBy": "Brian Hughes",
+            "createdAt": "December 14, 2020",
+            "modifiedAt": "December 14, 2020",
+            "size": "679 KB",
+            "type": "XLS",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "157adb9a-14f8-4559-ac93-8be893c9f80a",
+            "folderId": null,
+            "name": "DMCA notice #42",
+            "createdBy": "Brian Hughes",
+            "createdAt": "May 8, 2021",
+            "modifiedAt": "May 8, 2021",
+            "size": "1.5 MB",
+            "type": "DOC",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "4f64597a-df7e-461c-ad60-f33e5f7e0747",
+            "folderId": null,
+            "name": "Invoices",
+            "createdBy": "Brian Hughes",
+            "createdAt": "January 12, 2020",
+            "modifiedAt": "January 12, 2020",
+            "size": "17.8 MB",
+            "type": "PDF",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "e445c445-57b2-4476-8c62-b068e3774b8e",
+            "folderId": null,
+            "name": "Crash logs",
+            "createdBy": "Brian Hughes",
+            "createdAt": "June 8, 2020",
+            "modifiedAt": "June 8, 2020",
+            "size": "11.3 MB",
+            "type": "TXT",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "b482f93e-7847-4614-ad48-b78b78309f81",
+            "folderId": null,
+            "name": "System logs",
+            "createdBy": "Brian Hughes",
+            "createdAt": "June 8, 2020",
+            "modifiedAt": "June 8, 2020",
+            "size": "9.3 MB",
+            "type": "TXT",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "ec07a98d-2e5b-422c-a9b2-b5d1c0e263f5",
+            "folderId": null,
+            "name": "Personal projects",
+            "createdBy": "Brian Hughes",
+            "createdAt": "March 18, 2020",
+            "modifiedAt": "March 18, 2020",
+            "size": "4.3 MB",
+            "type": "DOC",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "ae908d59-07da-4dd8-aba0-124e50289295",
+            "folderId": null,
+            "name": "Biometric portrait",
+            "createdBy": "Brian Hughes",
+            "createdAt": "August 29, 2020",
+            "modifiedAt": "August 29, 2020",
+            "size": "4.5 MB",
+            "type": "JPG",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "4038a5b6-5b1a-432d-907c-e037aeb817a8",
+            "folderId": null,
+            "name": "Scanned image 20201012-1",
+            "createdBy": "Brian Hughes",
+            "createdAt": "September 13, 2020",
+            "modifiedAt": "September 13, 2020",
+            "size": "7.8 MB",
+            "type": "JPG",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "630d2e9a-d110-47a0-ac03-256073a0f56d",
+            "folderId": null,
+            "name": "Scanned image 20201012-2",
+            "createdBy": "Brian Hughes",
+            "createdAt": "September 14, 2020",
+            "modifiedAt": "September 14, 2020",
+            "size": "7.4 MB",
+            "type": "JPG",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "1417d5ed-b616-4cff-bfab-286677b69d79",
+            "folderId": null,
+            "name": "Prices",
+            "createdBy": "Brian Hughes",
+            "createdAt": "April 07, 2020",
+            "modifiedAt": "April 07, 2020",
+            "size": "2.6 MB",
+            "type": "DOC",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "bd2817c7-6751-40dc-b252-b6b5634c0689",
+            "folderId": null,
+            "name": "Shopping list",
+            "createdBy": "Brian Hughes",
+            "createdAt": "March 26, 2021",
+            "modifiedAt": "March 26, 2021",
+            "size": "2.1 MB",
+            "type": "DOC",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "14fb47c9-6eeb-4070-919c-07c8133285d1",
+            "folderId": null,
+            "name": "Summer budget",
+            "createdBy": "Brian Hughes",
+            "createdAt": "June 02, 2020",
+            "modifiedAt": "June 02, 2020",
+            "size": "943 KB",
+            "type": "XLS",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "894e8514-03d3-4f5e-bb28-f6c092501fae",
+            "folderId": "cd6897cb-acfd-4016-8b53-3f66a5b5fc68",
+            "name": "A personal file",
+            "createdBy": "Brian Hughes",
+            "createdAt": "June 02, 2020",
+            "modifiedAt": "June 02, 2020",
+            "size": "943 KB",
+            "type": "XLS",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "74010810-16cf-441d-a1aa-c9fb620fceea",
+            "folderId": "cd6897cb-acfd-4016-8b53-3f66a5b5fc68",
+            "name": "A personal folder",
+            "createdBy": "Brian Hughes",
+            "createdAt": "November 01, 2021",
+            "modifiedAt": "November 01, 2021",
+            "size": "3015 MB",
+            "type": "folder",
+            "contents": "907 files",
+            "description": "Personal photos; selfies, family, vacation and etc."
+          },
+          {
+            "id": "a8c73e5a-8114-436d-ab54-d900b50b3762",
+            "folderId": "74010810-16cf-441d-a1aa-c9fb620fceea",
+            "name": "A personal file within the personal folder",
+            "createdBy": "Brian Hughes",
+            "createdAt": "June 02, 2020",
+            "modifiedAt": "June 02, 2020",
+            "size": "943 KB",
+            "type": "XLS",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "12d851a8-4f60-473e-8a59-abe4b422ea99",
+            "folderId": "6da8747f-b474-4c9a-9eba-5ef212285500",
+            "name": "Photos file",
+            "createdBy": "Brian Hughes",
+            "createdAt": "June 02, 2020",
+            "modifiedAt": "June 02, 2020",
+            "size": "943 KB",
+            "type": "XLS",
+            "contents": null,
+            "description": null
+          },
+          {
+            "id": "2836766d-27e1-4f40-a31a-5a8419105e7e",
+            "folderId": "ed58add1-45a7-41db-887d-3ca7ee7f2719",
+            "name": "Work file",
+            "createdBy": "Brian Hughes",
+            "createdAt": "June 02, 2020",
+            "modifiedAt": "June 02, 2020",
+            "size": "943 KB",
+            "type": "XLS",
+            "contents": null,
+            "description": null
+          }
+        ]
+      },
+      "profile_about": {
+        "value": {
+          "name": "Robert Gealapu",
+          "title": "Prof. Univ",
+          "activityField": "Hidrologie",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget pharetra felis, sed ullamcorper dui. Sed et elementum neque. Vestibulum pellente viverra ultrices. Etiam justo augue, vehicula ac gravida a, interdum sit amet nisl. Integer vitae nisi id nibh dictum mollis in vitae tortor.",
+          "contactEmail": "office@blacksquare.ro",
+          "facebook": "https://www.facebook.com/blacksquare.ro/",
+          "linkedin": "https://www.facebook.com/blacksquare.ro/",
+          "instagram": "https://www.facebook.com/blacksquare.ro/",
+          "documents": [
+            {
+              "name": "Curriculum Vitae",
+              "updateDate": "2023-03-06 12:23:43"
+            },
+            {
+              "name": "Diploma",
+              "updateDate": "2023-04-06 12:23:43"
+            }
+          ]
+        }
+      },
+      "auth_users": {
+        "value": [
+          {
+            "uuid": "XgbuVEXBU5gtSKdbQRP1Zbbby1i1",
+            "from": "custom-db",
+            "password": "admin",
+            "role": "admin",
+            "data": {
+              "displayName": "Robert Gealapu",
+              "photoURL": "assets/images/avatars/brian-hughes.jpg",
+              "email": "robert.gealapu@blacksquare.ro",
+              "settings": {
+                "layout": {},
+                "theme": {}
+              },
+              "shortcuts": [
+                "apps.calendar",
+                "apps.mailbox",
+                "apps.contacts"
+              ]
+            }
+          },
+          {
+            "uuid": "XgbuVEXBU6gtSKdbTYR1Zbbby1i3",
+            "from": "custom-db",
+            "password": "staff",
+            "role": "staff",
+            "data": {
+              "displayName": "Arnold Matlock",
+              "photoURL": "assets/images/avatars/Arnold.jpg",
+              "email": "staff@fusetheme.com",
+              "settings": {
+                "layout": {
+                  "style": "layout2",
+                  "config": {
+                    "mode": "boxed",
+                    "scroll": "content",
+                    "navbar": {
+                      "display": true
+                    },
+                    "toolbar": {
+                      "display": true,
+                      "position": "below"
+                    },
+                    "footer": {
+                      "display": true,
+                      "style": "fixed"
+                    }
+                  }
+                },
+                "customScrollbars": true,
+                "theme": {}
+              },
+              "shortcuts": [
+                "apps.calendar",
+                "apps.mailbox",
+                "apps.contacts",
+                "apps.tasks"
+              ]
+            }
+          }
+        ]
+      },
+      "dashboards": {
+        "value": {
+          "articles": "124",
+          "events": "312",
+          "news": "413",
+          "files": "143",
+          "centers": "12",
+          "projects": "15",
+          "members": "136",
+          "teams": "413",
+          "partners": "123",
+          "researchFields": "433",
+          "topics": "13",
+          "types": "312"
+        }
+      }
+    },
+    "responses": {}
+  },
+  "tags": [
+    {
+      "name": "academy",
+      "description": "Academy App"
+    },
+    {
+      "name": "analytics-dashboard",
+      "description": "Analytics Dashboard App"
+    },
+    {
+      "name": "auth",
+      "description": "Authentication"
+    },
+    {
+      "name": "calendar",
+      "description": "Calendar App"
+    },
+    {
+      "name": "chat",
+      "description": "Chat App"
+    },
+    {
+      "name": "contacts",
+      "description": "Contacts App"
+    },
+    {
+      "name": "countries",
+      "description": "Countries"
+    },
+    {
+      "name": "crypto-dashboard",
+      "description": "Crypto Dashboard App"
+    },
+    {
+      "name": "e-commerce",
+      "description": "E-Commerce App"
+    },
+    {
+      "name": "file-manager",
+      "description": "File Manager App"
+    },
+    {
+      "name": "finance-dashboard",
+      "description": "Finance Dashboard App"
+    },
+    {
+      "name": "help-center",
+      "description": "Help Center App"
+    },
+    {
+      "name": "icons",
+      "description": "Icons"
+    },
+    {
+      "name": "mailbox",
+      "description": "Mailbox App"
+    },
+    {
+      "name": "notes",
+      "description": "Notes App"
+    },
+    {
+      "name": "notifications",
+      "description": "Notifications"
+    },
+    {
+      "name": "profile",
+      "description": "Profile App"
+    },
+    {
+      "name": "project-dashboard",
+      "description": "Project Dashboard App"
+    },
+    {
+      "name": "scrumboard",
+      "description": "Scrumboard App"
+    },
+    {
+      "name": "tasks",
+      "description": "Tasks App"
+    }
+  ]
+}
